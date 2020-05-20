@@ -579,6 +579,7 @@ struct LeopardPattern final : public ContinuousPattern
     virtual DBL EvaluateRaw(const Vector3d& EPoint, const Intersection *pIsection, const Ray *pRay, TraceThreadData *pThread) const override;
 };
 
+
 /// Implements the `marble` pattern.
 struct MarblePattern final : public ContinuousPattern
 {
@@ -739,6 +740,13 @@ struct SphericalPattern final : public ContinuousPattern
     virtual PatternPtr Clone() const override { return BasicPattern::Clone(*this); }
     virtual DBL EvaluateRaw(const Vector3d& EPoint, const Intersection *pIsection, const Ray *pRay, TraceThreadData *pThread) const override;
 };
+
+/// Implements the `polar` pattern.
+    struct PolarPattern final : public ContinuousPattern
+    {
+        virtual PatternPtr Clone() const override { return BasicPattern::Clone(*this); }
+        virtual DBL EvaluateRaw(const Vector3d& EPoint, const Intersection *pIsection, const Ray *pRay, TraceThreadData *pThread) const override;
+    };
 
 /// Implements the `square` pattern.
 struct SquarePattern final : public DiscretePattern

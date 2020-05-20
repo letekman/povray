@@ -1626,6 +1626,11 @@ void Parser::Parse_Pattern (PATTERN_T *New, BlendMapTypeId TPat_Type)
             New->pattern = PatternPtr(new SphericalPattern());
         END_CASE
 
+        CASE (POLAR_TOKEN)
+            New->Type = GENERIC_PATTERN;
+            New->pattern = PatternPtr(new PolarPattern());
+        END_CASE
+
         CASE (CYLINDRICAL_TOKEN)
             New->Type = GENERIC_PATTERN;
             New->pattern = PatternPtr(new CylindricalPattern());
@@ -4565,6 +4570,17 @@ void Parser::Parse_Warp (WarpList& warps)
             END_EXPECT
         END_CASE
 
+        CASE(POLAR_TOKEN)
+    New = PlanarW = new PlanarWarp();
+    if(Allow_Vector(Local_Vector))
+    {
+        Local_Vector.normalize();
+        PlanarW->Orientation_Vector = Local_Vector;
+        Parse_Comma();
+        PlanarW->OffSet=Parse_Float();
+    }
+    END_CASE
+
         CASE(PLANAR_TOKEN)
             New = PlanarW = new PlanarWarp();
             if(Allow_Vector(Local_Vector))
@@ -4973,6 +4989,11 @@ void Parser::Parse_PatternFunction(TPATTERN *New)
         CASE (SPHERICAL_TOKEN)
             New->Type = GENERIC_PATTERN;
             New->pattern = PatternPtr(new SphericalPattern());
+        END_CASE
+
+        CASE (POLAR_TOKEN)
+            New->Type = GENERIC_PATTERN;
+            New->pattern = PatternPtr(new PolarPattern());
         END_CASE
 
         CASE (CYLINDRICAL_TOKEN)

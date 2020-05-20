@@ -8558,6 +8558,44 @@ DBL SphericalPattern::EvaluateRaw(const Vector3d& EPoint, const Intersection *pI
     return(value);
 }
 
+/*****************************************************************************
+*
+* FUNCTION
+*
+*   polar_pattern
+*
+* INPUT
+*
+*   EPoint -- The point in 3d space at which the pattern
+*   is evaluated.
+*
+* OUTPUT
+*
+* RETURNS
+*
+*   DBL value in the range 0.0 to 1.0
+*
+* AUTHOR
+*
+*   -Bartłomiej Stemborwoski
+*
+* DESCRIPTION
+*
+*   -
+*
+* CHANGES
+*
+*   -
+*
+******************************************************************************/
+
+    DBL PolarPattern::EvaluateRaw(const Vector3d& EPoint, const Intersection *pIsection, const Ray *pRay, TraceThreadData *pThread) const
+    {
+        DBL value;
+        value = atan(EPoint[Y] / (sqrt(EPoint[X] * EPoint[X] + EPoint[Z] * EPoint[Z]))) / M_PI + 0.5;
+        return(value);
+    }
+
 
 /*****************************************************************************
 *

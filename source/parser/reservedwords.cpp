@@ -506,6 +506,7 @@ const RESERVED_WORD Reserved_Words[] = {
     { SPHERE_TOKEN,                 "sphere" },
     { SPHERE_SWEEP_TOKEN,           "sphere_sweep" },
     { SPHERICAL_TOKEN,              "spherical" },
+    { POLAR_TOKEN,                  "polar" },
     { SPIRAL1_TOKEN,                "spiral1" },
     { SPIRAL2_TOKEN,                "spiral2" },
     { SPLINE_TOKEN,                 "spline" },

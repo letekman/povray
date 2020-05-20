@@ -1468,6 +1468,10 @@ void Parser::Parse_Camera (Camera& Cam)
                 New.Type = SPHERICAL_CAMERA;
             END_CASE
 
+            CASE (POLAR_TOKEN)
+                New.Type = SPHERICAL_CAMERA;
+            END_CASE
+
             CASE (CYLINDER_TOKEN)
                 i = (int)Parse_Float();
                 switch (i)
